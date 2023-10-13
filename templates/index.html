@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Form with Unique Button</title>
+    
+</head>
+
+
+<body>
+    {% extends 'headerPage.html' %}
+
+    {% block content%}
+    
+    <div class="container">
+        <h2>Halel Food classifier</h2>
+        <form method="post" enctype="multipart/form-data" action="result">
+            {% csrf_token %}
+            <label id="not_clear" for="fname">upload your image here </label>
+
+            <input name="filePath" type="file">
+
+            <button type="submit" class="unique-button">Predict !</button>
+
+            <h2>{{result}}</h2>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
